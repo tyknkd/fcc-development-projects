@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>URL Shortener Microservice</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn.freecodecamp.org/universal/favicons/favicon-16x16.png"
+    />
+    <link href="/public/style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <h1>URL Shortener Microservice</h1>
+    <main>
+      <section>
+        <form action="api/shorturl" method="POST">
+          <fieldset>
+            <legend>URL Shortener</legend>
+            <label for="url_input">URL:</label>
+            <input id="url_input" type="text" name="url" placeholder="https://www.freecodecamp.org/" />
+            <input type="submit" value="Post URL" />
+          </fieldset>
+        </form>
+        <h3>Example Usage:</h3>
+        <p>
+          <a href="api/shorturl/2">[base url]/api/shorturl/2</a>
+        </p>
+
+        <h4>Redirects to:</h4>
+        <p>https://freecodecamp.org</p>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Built by <a href="https://tyknkd.github.io">Tyler Kinkade</a>
+      </p>
+      <p><i>
+        with <a href="https://www.freecodecamp.org/learn/back-end-development-and-apis/">freeCodeCamp</a> template</i>
+      </p>
+    </footer>
+  </body>
+</html>
