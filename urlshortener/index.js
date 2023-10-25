@@ -11,6 +11,7 @@ app.use(cors());
 
 // https://stackoverflow.com/questions/24330014/bodyparser-is-deprecated-express-4/24344756#24344756
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use('/public', express.static(`${process.cwd()}/public`));
 
@@ -20,7 +21,7 @@ app.get('/', function(req, res) {
 
 // Connect to database
 const URI = process.env['MONGO_URI'];
-mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true });
 
 // Define DB schema
 const urlSchema = new mongoose.Schema({
@@ -37,8 +38,11 @@ app.post('/api/shorturl', (req, res) => {
   const url = req.body.url;
   // Define regex for valid URL format: begins with http:// or https://
   // followed by alphanumeric string (including hyphen and underscore)
-  // followed by at least one decimal and alphanumeric string
-  const regex = /^https?:\/\/\w+\.\w+(\.\w+)*/;
+  // followed by at least one decimal and alphanumeric string and
+  // optionally followed by slashes, question marks, equal signs, 
+  // hyphens, and alphanumeric strings
+  // e.g., "https://urlshortener-project.tyknkd.repl.co/?v=1698212934324"
+  const regex = /^https?:\/\/\w+[-\w]*\.\w+[-\w]*(\.\w+[-\w]*)*(\/[?]*[=-\w]*)*/;
   // If not valid URL format
   if (!regex.test(url)) {
     // return error
