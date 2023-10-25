@@ -11,7 +11,6 @@ app.use(cors());
 
 // https://stackoverflow.com/questions/24330014/bodyparser-is-deprecated-express-4/24344756#24344756
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 app.use('/public', express.static(`${process.cwd()}/public`));
 
