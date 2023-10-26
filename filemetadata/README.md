@@ -1,3 +1,5 @@
 # File Metadata Microservice
 
-File metadata microservice API project for freeCodeCamp backend certificate.  https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/file-metadata-microservice
+File metadata microservice API project for freeCodeCamp backend certificate.
+
+View live on Replit: https://filemetadata-project.tyknkd.repl.co
