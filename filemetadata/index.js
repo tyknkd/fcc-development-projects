@@ -13,7 +13,6 @@ app.get('/', function(req, res) {
 });
 
 app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
-  // {"name":"filename.png","type":"image/png","size":2522}
   res.json({
     name: req.file.originalname,
     type: req.file.mimetype,
