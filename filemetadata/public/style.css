@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css2?family=Raleway&display=swap);
+
+:root {
+  --bg-color: #111;
+  --text-color: #ccc;
+  --field-color: #aaa;
+  --field-text-color: #222;
+  --form-bg-color: #222;
+  --placeholder-color: #444;
+  --link-color: DarkSlateBlue;
+  --fonts: Raleway, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 25px;
+  font-family: var(--fonts);
+  font-size: 16px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.4em;
+  text-align: center;
+}
+
+.container {
+  padding: 0;
+  margin-top: 40px;
+}
+
+h3 { margin-top: 10px;}
+
+.footer {
+  margin-top: 60px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--link-color);
+}
+
+input {
+  display: block;
+  position: relative;
+  font-family: var(--fonts);
+  background-color: var(--field-color);
+  color: var(--field-text-color);
+  margin: 10px auto;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+input::file-selector-button {
+  font-family: var(--fonts);
+  color: var(--text-color);
+  background-color: var(--form-bg-color);
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+input::file-selector-button:hover, input#button:hover {
+  background-color: var(--link-color);
+}
+
+input#button  {
+  width: 230px;
+  font-family: var(--fonts);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.view {
+  position:relative;
+  margin: 10px auto;
+  border: 1px  solid  var(--text-color);
+  padding: 20px;
+  width: 60%;
+  min-width: 400px;
+}
