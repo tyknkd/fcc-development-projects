@@ -1,3 +1,5 @@
 # Metric-Imperial Converter
 
-Full-stack Metric-Imperial Converter https://www.freecodecamp.org/learn/quality-assurance/quality-assurance-projects/metric-imperial-converter
+Full-stack Metric-Imperial Converter
+
+View live on https://metricimpconverter.tyknkd.repl.co
