@@ -85,9 +85,6 @@ input[type=submit]:hover {
 
 code {
   font-family: var(--fonts);
-  font-size: 0.9em;
-  color: var(--field-text-color);
-  background-color: var(--text-color);
   padding: 2px;
 }
 
