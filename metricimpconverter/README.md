@@ -1,5 +1,5 @@
 # Metric-Imperial Converter
 
-Full-stack Metric-Imperial Converter Project
+Full-stack metric-imperial unit converter project
 
-View live on https://metricimpconverter.tyknkd.repl.co
+View live on Replit: https://metricimpconverter.tyknkd.repl.co
