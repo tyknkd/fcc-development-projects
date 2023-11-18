@@ -147,13 +147,6 @@ suite('Functional Tests', function() {
           assert.equal(res.type, 'application/json');
           assert.equal(res.body.result, 'successfully updated');
           assert.equal(res.body._id, update._id);
-        // })
-        // .get(url)
-        // .query(update)
-        // .end((err, res) => {
-        //   assert.equal(res.body[0].issue_title, update.issue_title);
-        //   assert.equal(res.body[0].creator, input.creator);
-        //   assert.beforeTime(new Date(res.body[0].created_on), new Date(res.body[0].updated_on));
           done();
         });
     });
@@ -171,14 +164,6 @@ suite('Functional Tests', function() {
           assert.equal(res.type, 'application/json');
           assert.equal(res.body.result, 'successfully updated');
           assert.equal(res.body._id, update._id);
-        // })
-        // .get(url)
-        // .query(update)
-        // .end((err, res) => {
-        //   assert.equal(res.body[0].issue_title, update.issue_title);
-        //   assert.equal(res.body[0].issue_text, update.issue_text);
-        //   assert.equal(res.body[0].creator, input.creator);
-        //   assert.beforeTime(new Date(res.body[0].created_on), new Date(res.body[0].updated_on));
           done();
         });
     });
