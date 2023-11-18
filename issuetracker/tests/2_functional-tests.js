@@ -99,6 +99,7 @@ suite('Functional Tests', function() {
         .end((err, res) => {
           assert.equal(res.status, 200);
           assert.equal(res.type, 'application/json');
+	  assert.isArray(res.body, 'response should be array');
           done();
         });
     });
