@@ -1,0 +1,176 @@
+@import url(https://fonts.googleapis.com/css2?family=Raleway&display=swap);
+
+:root {
+  --bg-color: #111;
+  --text-color: #ccc;
+  --field-color: #aaa;
+  --field-text-color: #222;
+  --form-bg-color: #222;
+  --placeholder-color: #444;
+  --error-color: darkred;
+  --highlight-color: seagreen;
+  --link-color: darkslateblue;
+  --fonts: Raleway, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 25px;
+  font-family: var(--fonts);
+  font-size: 16px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.4em;
+  min-width: 150px;
+}
+
+section {
+    margin: 25px;
+}
+
+header, h1, h2, h3, hr {
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--link-color);
+}
+
+form {
+  margin: 10px 0;
+  padding: 15px;
+  background-color: var(--form-bg-color);
+  display: inline-block;
+  width: 100%;
+  max-width: 340px;
+  min-width: 100px;
+  border-radius: 5px;
+}
+
+input, textarea {
+  display: block;
+  background-color: var(--field-color);
+  color: var(--field-text-color);
+  margin: 2px 0 10px 0;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+::placeholder {
+  font-family: var(--fonts);
+  font-size: 1rem;
+  color: var(--placeholder-color);
+}
+
+button, input[type='button'] {
+  width: 100%;
+  padding: 5px;
+  font-family: var(--fonts);
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+}
+
+button:hover, input[type='button']:hover {
+  background-color: var(--link-color);
+  cursor: pointer;
+}
+
+code {
+  font-family: var(--fonts);
+  padding: 2px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  max-width: 95%;
+}
+
+textarea {
+  width: 100%;
+}
+
+#user-stories {
+  font-size: 1.2em;
+}
+
+#output-container,
+#solution-container,
+#text-input,
+#locale-select,
+input[type="button"] {
+  font-size: 1.1em;
+}
+
+#output-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+#solution-container {
+  font-weight: bold;
+}
+
+#solution-container {
+  margin-left: 20px;
+}
+
+#translated-sentence {
+  margin-top: 10px;
+  font-weight: normal;
+}
+
+#error-msg {
+  font-weight: normal;
+  color: var(--error-color);
+}
+
+.highlight {
+  color: var(--highlight-color);
+}
+
+#text-input {
+  padding: 10px;
+}
+
+@media (min-width: 800px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .form-container {
+    align-self: flex-end;
+  }
+
+  #output-container {
+    flex-direction: row;
+    margin-top: 0;
+    margin-left: 20px;
+  }
+
+  #solution-container {
+    width: 75%;
+    margin-top: 0;
+  }
+}
