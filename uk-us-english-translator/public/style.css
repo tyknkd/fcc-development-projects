@@ -58,7 +58,7 @@ form {
   border-radius: 5px;
 }
 
-input, textarea {
+input, textarea, select {
   display: block;
   background-color: var(--field-color);
   color: var(--field-text-color);
