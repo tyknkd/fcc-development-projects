@@ -8,7 +8,6 @@ module.exports = function(app) {
 
   app.route('/api/check').post((req, res) => {
     const { puzzle, coordinate, value } = req.body;
-    console.log(req.body);
     if (puzzle && coordinate && value) {
       const puzzleValidity = solver.validate(puzzle);
       const rowColVal = solver.validateCoordAndValue(coordinate, value);
