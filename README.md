@@ -1,2 +1,2 @@
 # fcc-development-projects
-Microservice REST API & Backend Development FCC Certification Projects
+Full-stack development REST API FCC Certification Projects
