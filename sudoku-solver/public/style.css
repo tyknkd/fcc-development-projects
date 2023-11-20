@@ -1,0 +1,198 @@
+@import url(https://fonts.googleapis.com/css2?family=Raleway&display=swap);
+
+:root {
+  --bg-color: #111;
+  --text-color: #ccc;
+  --field-color: #aaa;
+  --field-text-color: #222;
+  --form-bg-color: #222;
+  --placeholder-color: #444;
+  --error-color: darkred;
+  --link-color: darkslateblue;
+  --fonts: Raleway, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 25px;
+  font-family: var(--fonts);
+  font-size: 16px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.4em;
+  min-width: 150px;
+}
+
+section {
+    margin: 25px;
+}
+
+header, h1, h2, h3, hr {
+  margin-top: 20px;
+  margin-bottom: 2px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--link-color);
+}
+
+form {
+  margin: 10px 0;
+  padding: 15px;
+  background-color: var(--form-bg-color);
+  display: inline-block;
+  width: 100%;
+  max-width: 340px;
+  min-width: 100px;
+  border-radius: 5px;
+}
+
+input, textarea {
+  display: block;
+  background-color: var(--field-color);
+  color: var(--field-text-color);
+  margin: 2px 0 10px 0;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+::placeholder {
+  font-family: var(--fonts);
+  font-size: 1rem;
+  color: var(--placeholder-color);
+}
+
+button, input[type='button'] {
+  width: 100%;
+  padding: 5px;
+  font-family: var(--fonts);
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+}
+
+button:hover, input[type='button']:hover {
+  background-color: var(--link-color);
+  cursor: pointer;
+}
+
+code {
+  font-family: var(--fonts);
+  padding: 2px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  max-width: 95%;
+  align-self: flex-start;
+}
+
+textarea {
+  width: 100%;
+}
+
+#user-stories {
+  font-size: 1.2em;
+}
+
+#error-msg {
+  color: var(--error-color);
+  display: inline;
+  margin-left: 10px;
+}
+
+#sudoku-grid-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+}
+
+#sudoku-grid {
+  text-align: center;
+  display: inline;
+}
+
+.grid {
+  border: 3px solid;
+  border-spacing: 0;
+}
+
+td {
+  border: 1px solid;
+  padding: 0.3em;
+}
+
+.yAxisLegend {
+  margin-top: 35px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.yAxisLegend tr td {
+  border: 1px solid rgba(0,0,0,0);
+  width: 2em;
+  height: 1.95em;
+}
+
+.xAxisLegend {
+  border: 3px solid rgba(0,0,0,0);
+  border-spacing: 0;
+  font-weight: bold;
+}
+
+.xAxisLegend tr td {
+  border: 1px solid rgba(0,0,0,0);
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  vertical-align: bottom;
+  padding-bottom: 0;
+}
+
+.xAxisLegend tr td:nth-of-type(3n) {
+  border-right: 3px solid rgba(0,0,0,0);
+}
+
+.sudoku-input {
+  border: 1px solid var(--text-color);
+  width: 2em;
+  height: 2em;
+  text-align: center;
+}
+
+.C1, .C2, .C3, .C4, .C5, .C6, .C7, .C8, .C9, .F1, .F2, .F3, .F4, .F5, .F6, .F7, .F8, .F9 {
+  border-bottom: 3px solid;
+}
+
+.A3, .B3, .C3, .D3, .E3, .F3, .G3, .H3, .I3, .A6, .B6, .C6, .D6, .E6, .F6, .G6, .H6, .I6 {
+  border-right: 3px solid;
+}
+
+@media (min-width: 800px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .form-container {
+    align-self: center;
+  }
+}
