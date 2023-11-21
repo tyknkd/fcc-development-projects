@@ -71,7 +71,7 @@ class Translator {
                   for (let entry in britishToAmericanTitles) {
                     if (word === entry) {
                       // Delete following period
-                      tokens[i+1] = ' ';
+                      tokens[i+1] = '';
                     }
                   }
                 }
@@ -80,7 +80,7 @@ class Translator {
             if (transatlantic) {
               return { text: input.text, translation: 'Everything looks good to me!'};
             } else {
-              return { text: input.text, translation: tokens.join('') };
+              return { text: input.text, translation: tokens.join(' ') };
             }            
           } else {
             return { error: 'Required field(s) missing'};
