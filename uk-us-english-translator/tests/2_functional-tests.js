@@ -5,7 +5,7 @@ const server = require('../server.js');
 
 chai.use(chaiHttp);
 
-let Translator = require('../components/translator.js');
+// let Translator = require('../components/translator.js');
 
 suite('Functional Tests', () => {
   const url = '/api/solve';

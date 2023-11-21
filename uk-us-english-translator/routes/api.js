@@ -1,6 +1,6 @@
 'use strict';
 
-const Translator = require('../components/translator.js');
+const { Translator } = require('../components/translator.js');
 
 module.exports = function(app) {
 

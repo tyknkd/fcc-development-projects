@@ -71,7 +71,7 @@ class Translator {
                   for (let entry in britishToAmericanTitles) {
                     if (word === entry) {
                       // Delete following period
-                      tokens[i+1] = '';
+                      tokens[i+1] = ' ';
                     }
                   }
                 }
