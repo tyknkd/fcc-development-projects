@@ -28,37 +28,33 @@ class Translator {
             if (input.text.length === 0) {
                 return { error: 'No text to translate' };
             }
+
             let transatlantic = true;
             const american = input.locale === 'american-to-british' ? true : false;
             
-            // TODO: Search for and translate any times
+            // Search for and translate any time substrings
             let text = input.text;
-            if (american) {
-              const time = /([0-9]||[0-9]{2})(\:)([0-9]{2})/;
-              if (time.test(text)) {
-                  transatlantic = false;
-                  // Replace : with .
-              }
-            } else {
-              const time = /([0-9]||[0-9]{2})(\.)([0-9]{2})/;
-              if (time.test(text)) {
-                  transatlantic = false;
-                  // Replace . with :
-              }
+            const time = american ? /([0-9]||[0-9]{2})(\:)([0-9]{2})/g : /([0-9]||[0-9]{2})(\.)([0-9]{2})/g;
+            const replace = american ? '<span class="highlight">$1.$3</span>' : '<span class="highlight">$1:$3</span>';
+            if (time.test(text)) {
+                transatlantic = false;
+                // Replace . with :
+                text = text.replace(time, '<span class="highlight">$1:$3</span>');
             }
+
             // Tokenize text
             const tokens = tokenizer.tokenize(text);
 
-            let dictionary = britishDict;
-            if (american) {
-              dictionary = americanDict;
-            }
+            // Translate non-transatlantic words using dictionary
+            const dictionary = american ? americanDict : britishDict;
+            
             // For each token
             for (let i = 0; i < tokens.length; i++) {
               // Skip numbers and punctuation
               if (/[A-Za-z]/.test(tokens[i])) {
                 const capitalized = /^[A-Z]/.test(tokens[i]) ? true : false;
                 const word = tokens[i].toLowerCase();
+
                 // Search through dictionaries in lower case
                 for (let entry in dictionary) {
                   if (word === entry) {
