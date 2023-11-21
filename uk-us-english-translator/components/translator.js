@@ -3,11 +3,17 @@ const americanToBritishSpelling = require('./american-to-british-spelling.js');
 const americanToBritishTitles = require("./american-to-british-titles.js")
 const britishOnly = require('./british-only.js')
 
-// Concatenate americanOnly and americanToBritishSpelling
+// Concatenate americanOnly and americanToBritishSpelling dictionaries
 const americanDict = {...americanOnly, ...americanToBritishSpelling};
 
-// TODO: Concatenate britishOnly to americanToBritishSpelling with keys/values reversed
-const britishDict = {...britishOnly, ...americanToBritishSpelling};
+// Create UK to US spelling dictionary
+const britishToAmericanSpelling =  Object.fromEntries(Object.entries(americanToBritishSpelling).map((entry) => entry.reverse()));
+
+// Create UK to US titles dictionary
+const britishToAmericanTitles = Object.fromEntries(Object.entries(americanToBritishTitles).map((entry) => entry.reverse()));
+
+// Concatenate with britishOnly dictionary
+const britishDict = {...britishOnly, ...britishToAmericanSpelling, ...britishToAmericanTitles};
 
 const natural = require('natural');
 const tokenizer = new natural.WordPunctTokenizer();
@@ -28,17 +34,17 @@ class Translator {
             // TODO: Search for and translate any times
             let text = input.text;
             if (american) {
-                const time = /([0-9]||[0-9]{2})(\:)([0-9]{2})/;
-                if (time.test(text)) {
-                    transatlantic = false;
-                    // Replace : with .
-                }
+              const time = /([0-9]||[0-9]{2})(\:)([0-9]{2})/;
+              if (time.test(text)) {
+                  transatlantic = false;
+                  // Replace : with .
+              }
             } else {
-                const time = /([0-9]||[0-9]{2})(\.)([0-9]{2})/;
-                if (time.test(text)) {
-                    transatlantic = false;
-                    // Replace . with :
-                }
+              const time = /([0-9]||[0-9]{2})(\.)([0-9]{2})/;
+              if (time.test(text)) {
+                  transatlantic = false;
+                  // Replace . with :
+              }
             }
             // Tokenize text
             const tokens = tokenizer.tokenize(text);
@@ -49,24 +55,31 @@ class Translator {
             }
             // For each token
             for (let i = 0; i < tokens.length; i++) {
-                // Skip numbers and punctuation
-                if (/[A-Za-z]/.test(tokens[i])) {
-                    const capitalized = /^[A-Z]/.test(tokens[i]) ? true : false;
-                    const word = tokens[i].toLowerCase();
-                    // Search through dictionaries in lower case
-                    for (let entry in dictionary) {
-                        if (word === entry) {
-                            if (capitalized) {
-                                // Capitalize first letter of entry
-                                entry;
-                            }
-                            tokens[i] = `<span class="highlight">${entry}</span>`;
-                        }
+              // Skip numbers and punctuation
+              if (/[A-Za-z]/.test(tokens[i])) {
+                const capitalized = /^[A-Z]/.test(tokens[i]) ? true : false;
+                const word = tokens[i].toLowerCase();
+                // Search through dictionaries in lower case
+                for (let entry in dictionary) {
+                  if (word === entry) {
+                    transatlantic = false;
+                    if (capitalized) {
+                      // Capitalize first letter of entry
+                      entry = entry.charAt(0).toUpperCase() + entry.slice(1);
                     }
-                    // Handle titles (e.g., 'mr.')
-                    // If match, replace with translation 
-                    // wrapped with <span class="highlight"></span> tags    
+                    tokens[i] = `<span class="highlight">${entry}</span>`;
+                  }
                 }
+                if (american) {
+                  // Translate American titles
+                  for (let entry in britishToAmericanTitles) {
+                    if (word === entry) {
+                      // Delete following period
+                      tokens[i+1] = '';
+                    }
+                  }
+                }
+              }
             } 
             if (transatlantic) {
               return { text: input.text, translation: 'Everything looks good to me!'};
