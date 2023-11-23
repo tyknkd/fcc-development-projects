@@ -43,8 +43,7 @@ class Translator {
     // Translate words
     for (let dictionary of dictionaries) {
       for (let entry in dictionary) {
-        // TODO: Edit regex to match only words followed by space or punctuation
-        const entryRegEx = new RegExp(entry, 'gi');
+        const entryRegEx = new RegExp(`${entry}(?![A-Za-z<])`, 'gi');
         if (entryRegEx.test(translation)) {
           transatlantic = false;
           let replacement = dictionary[entry];
