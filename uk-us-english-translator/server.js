@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-const expect = require('chai').expect;
 const cors = require('cors');
 require('dotenv').config();
 
@@ -11,11 +10,11 @@ const userRoutes = require('./routes/api.js');
 
 const app = express();
 
-app.use('/public', express.static(process.cwd() + '/public'));
-app.use(cors({ origin: '*' })); //For FCC testing purposes only
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/public', express.static(process.cwd() + '/public'));
+app.use(cors({ origin: '*' })); //For FCC testing purposes only
 
 
 // Index page (static HTML)
