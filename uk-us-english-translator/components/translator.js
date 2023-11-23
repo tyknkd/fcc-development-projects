@@ -3,6 +3,7 @@ const americanToBritishSpelling = require('./american-to-british-spelling.js');
 const americanToBritishTitles = require("./american-to-british-titles.js")
 const britishOnly = require('./british-only.js')
 
+
 // Create UK to US spelling dictionary
 const britishToAmericanSpelling = Object.fromEntries(Object.entries(americanToBritishSpelling).map((entry) => entry.reverse()));
 
@@ -16,7 +17,7 @@ class Translator {
     if (!input.locale) { return { error: 'Required field(s) missing' }; }
     if (input.locale !== 'american-to-british'
       && input.locale !== 'british-to-american') { return { error: 'Invalid value for locale field' }; }
-    if (!input.text) { return { error: 'Required field(s) missing' }; }
+    if (input.text === undefined) { return { error: 'Required field(s) missing' }; }
     if (input.text.length === 0) { return { error: 'No text to translate' }; }
 
     // Set dictionaries, time RegEx, time replacement string
@@ -66,4 +67,4 @@ class Translator {
   }
 }
 
-module.exports = { Translator };
+module.exports = Translator;

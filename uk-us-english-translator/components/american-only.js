@@ -1,6 +1,5 @@
 module.exports = {
   "acclimate": "acclimatise",
-  "apartment": "flat",
   "acetaminophen": "paracetamol",
   "baby carriage": "pram",
   "backhoe": "digger",
@@ -58,7 +57,6 @@ module.exports = {
   "drywall": "plasterboard",
   "dumpster": "skip",
   "eggplant": "aubergine",
-  "elevator": "lift",
   "emergency brake": "handbrake",
   "eminent domain": "compulsory purchase",
   "envision": "to envisage",
@@ -114,7 +112,6 @@ module.exports = {
   "parking garage": "car park",
   "parking lot": "car park",
   "penitentiary": "prison",
-  "period": "full stop",
   "plastic wrap": "cling-film",
   "play hooky": "bunk off",
   "plexiglas": "Perspex",
